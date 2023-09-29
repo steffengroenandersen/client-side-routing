@@ -34,6 +34,23 @@ export async function loadHtml(page) {
     return div
   }
 
+  /**
+ * Sets active element on a div (or similar) containing a-tags (with data-navigo attributes ) used as a "menu"
+ * Meant to be called in a before-hook with Navigo
+ * @param topnav - Id for the element that contains the "navigation structure"
+ * @param activeUrl - The URL which are the "active" one
+ */
+export function setActiveLink(topnav, activeUrl) {
+  const links = document.getElementById(topnav).querySelectorAll("a");
+  links.forEach(child => {
+    child.classList.remove("active")
+    //remove leading '/' if any
+    if (child.getAttribute("href").replace(/\//, "") === activeUrl) {
+      child.classList.add("active")
+    }
+  })
+}
+
 
 
   /**

@@ -16,7 +16,6 @@ window.addEventListener("load", async () => {
     // Load in templates
     const templateSignup = await loadHtml("./pages/signup/signup.html")
     const templateLogin = await loadHtml("./pages/login/login.html")
-    const templateIndex = await loadHtml("index.html")
     const templateNotFound = await loadHtml("./pages/notfound/notfound.html")
 
     // Create Navigo Router and set to window.router
@@ -33,10 +32,6 @@ window.addEventListener("load", async () => {
         }
     })
     .on({
-        "/": () => {
-            renderHtml(templateIndex, "content")
-        }
-        ,
         "/signup": () => {
             renderHtml(templateSignup, "content")
             initSignup()
