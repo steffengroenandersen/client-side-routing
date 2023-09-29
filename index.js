@@ -5,11 +5,11 @@ import "https://unpkg.com/navigo"
 import "https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.4.0/purify.min.js"
 
 // Import util functions for router
-import { setActiveLink, renderHtml, loadHtml } from "./utils"
+import { setActiveLink, renderHtml, loadHtml } from "./utils.js"
 
 
-import { initSignup } from "./pages/signup/signup"
-import { initLogin } from "./pages/login/login"
+import { initSignup } from "./pages/signup/signup.js"
+import { initLogin } from "./pages/login/login.js"
 
 window.addEventListener("load", async () => {
 
