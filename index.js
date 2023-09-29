@@ -10,6 +10,7 @@ import { setActiveLink, renderHtml, loadHtml } from "./utils.js"
 
 import { initSignup } from "./pages/signup/signup.js"
 import { initLogin } from "./pages/login/login.js"
+import { initShowMatch } from "./pages/showMatch/showmatch.js"
 
 window.addEventListener("load", async () => {
 
@@ -18,6 +19,7 @@ window.addEventListener("load", async () => {
     const templateSignup = await loadHtml("./pages/signup/signup.html")
     const templateLogin = await loadHtml("./pages/login/login.html")
     const templateAbout = await loadHtml("./pages/about/about.html")
+    const templateShowmatch = await loadHtml("./pages/showMatch/showmatch.html")
     const templateNotFound = await loadHtml("./pages/notfound/notfound.html")
 
     // Create Navigo Router and set to window.router
@@ -47,6 +49,10 @@ window.addEventListener("load", async () => {
         },
         "/about": () => {
             renderHtml(templateAbout, "content")
+        },
+        "/showmatch": (match) => {
+            renderHtml(templateShowmatch, "content")
+            initShowMatch(match)
         }
     })
     .notFound(() => {
