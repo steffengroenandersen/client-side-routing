@@ -21,6 +21,7 @@ window.addEventListener("load", async () => {
 
     // Create Navigo Router and set to window.router
     const router = new Navigo("/",{hash:true});
+
     window.router = router
 
     // Setup router
@@ -32,9 +33,14 @@ window.addEventListener("load", async () => {
         }
     })
     .on({
-        "/": () => {
-            renderHtml(templateIndex, "content")
-        },
+        "/": () => document.getElementById("content").innerHTML =
+        `<h2>Home</h2>
+      <p style='margin-top:2em'>
+      This is the content of the Home Route <br/>
+      Observe that since this is so simple  all HTML is added in the on-handler for the route. 
+      and not in a separate file.
+      </p>
+     `,
         "/signup": () => {
             renderHtml(templateSignup, "content")
             initSignup()
