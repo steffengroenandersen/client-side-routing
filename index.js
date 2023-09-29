@@ -14,8 +14,10 @@ import { initLogin } from "./pages/login/login.js"
 window.addEventListener("load", async () => {
 
     // Load in templates
+    const templateHome = await loadHtml("./pages/home/home.html")
     const templateSignup = await loadHtml("./pages/signup/signup.html")
     const templateLogin = await loadHtml("./pages/login/login.html")
+    const templateAbout = await loadHtml("./pages/about/about.html")
     const templateNotFound = await loadHtml("./pages/notfound/notfound.html")
 
     // Create Navigo Router and set to window.router
@@ -32,6 +34,9 @@ window.addEventListener("load", async () => {
         }
     })
     .on({
+        "/": () => {
+            renderHtml(templateHome, "content")
+        },
         "/signup": () => {
             renderHtml(templateSignup, "content")
             initSignup()
@@ -39,6 +44,9 @@ window.addEventListener("load", async () => {
         "/login": () => {
             renderHtml(templateLogin, "content")
             initLogin()
+        },
+        "/about": () => {
+            renderHtml(templateAbout, "content")
         }
     })
     .notFound(() => {
